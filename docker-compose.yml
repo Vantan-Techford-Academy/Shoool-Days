@@ -1,0 +1,28 @@
+version: "3"
+services:
+  web:
+    build: ./flask
+    command: python3 app/app.py
+    volumes:
+      - ./app:/app
+    ports:
+      - 5001:5000
+    links:
+      - db
+    tty: true
+
+  db:
+    container_name: db
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    platform: linux/x86_64
+    tty: true
+    ports:
+      - 3306:3306
+    env_file:
+      - ./.env_mysql
+    volumes:
+      - type: bind
+        source: ./mysql/init
+        target: /docker-entrypoint-initdb.d
