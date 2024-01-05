@@ -10,5 +10,6 @@ RUN pip3 install Flask-Migrate
 RUN pip3 install pymySQL
 RUN pip3 install cryptography
 RUN pip3 install Flask-WTF
+RUN pip3 install email_validator
 
 RUN mkdir /app

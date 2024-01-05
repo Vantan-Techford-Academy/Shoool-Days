@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask_wtf.csrf import CSRFProtect
 from models.database import init_db, db
 from models.User import User
 from models.Category import Category
@@ -12,7 +13,8 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://test_user:password@db/schoool_days_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+app.config['SECRET_KEY'] = 'lemontea'
+csrf = CSRFProtect(app)
 init_db(app)
 
 @app.route("/")
@@ -30,7 +32,7 @@ def signup():
         password = form.password.data
 
         # パスワードをハッシュ化
-        hashed_password = generate_password_hash(password, method='sha512')
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
 
         # ユーザーを作成してデータベースに追加
         new_user = User(user_name=user_name, mail_address=mail_address, password=hashed_password)
