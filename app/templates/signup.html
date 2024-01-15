@@ -18,7 +18,7 @@
             </ul>
         {% endif %}
     {% endwith %}
-    <form method="POST">
+    <form method="POST" action="" enctype="multipart/form-data">
         {{ form.csrf_token }}
         <label for="user_name">ユーザー名</label>
         {{ form.user_name }}
@@ -28,6 +28,8 @@
         {{ form.password }}
         <label for="confirm_password">パスワードの確認</label>
         {{ form.confirm_password }}
+        <label for="profile_image">プロフィール画像の選択</label>
+        {{ form.profile_image }}
         {{ form.submit }}
     </form>
 </body>
