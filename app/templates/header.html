@@ -1,11 +1,10 @@
-{% extends 'base.html' %}
-{% block header %}
-<div class="logo"></div>
+{% extends 'base.html' %} {% block header %}
 
-<div class="head">
+<header class="header">
+  <div class="header-heading">
+    <img class="logo" src="static/css/img/shool.png" alt="ロゴ画像" />
     <div class="topic">^勉強</div>
-    <div class="serch">
-        <div class="kensaku">検索</div>
-    </div>
-</div>
+  </div>
+  <input type="text" class="search-box" placeholder="検索" />
+</header>
 {% endblock %}

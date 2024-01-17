@@ -3,43 +3,40 @@ body {
     margin: 0px;
 }
 
-.logo {
-    object-fit: contain;
-    float: left;
-    background-image: url(./img/shool.png);
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
     height: 80px;
-    width: 80px;
-    background-repeat: no-repeat;
-}
-
-.head {
-    float: left;
-    height: 80px;
-    width: 1360px;
+    line-height: 80px;
+    width: 100%;
     background-color: rgb(192, 189, 189);
 }
 
+.header-heading{
+    display: flex;
+}
+.logo {
+    height: 80px;
+    width: auto;
+    object-fit: cover;
+}
+
 .topic {
-    float: left;
-    height: 75px;
-    margin-top: 15px;
+    height: 80px;
     margin-left: 50px;
     font-weight: bold;
     font-size: 40px;
 }
 
-.serch {
-    float: left;
+.search-box {
     height: 50px;
     width: 400px;
-    margin-top: 13px;
-    margin-left: 750px;
+    margin-right: 50px;
+    padding-left: 30px;
     background-color: rgb(255, 253, 253);
     border-radius: 100px;
+    font-size: 30px;
 }
 
-.kensaku {
-    margin-top: 12px;
-    margin-left: 30px;
-    font-size: 20px;
-}
