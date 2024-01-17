@@ -1,5 +1,45 @@
+body {
+    background-color: rgb(165, 165, 165);
+    margin: 0px;
+}
+
+.logo {
+    object-fit: contain;
+    float: left;
+    background-image: url(./img/shool.png);
+    height: 80px;
+    width: 80px;
+    background-repeat: no-repeat;
+}
+
 .head {
-    height: 40px;
-    width: 130px;
-    background-color: red;
+    float: left;
+    height: 80px;
+    width: 1360px;
+    background-color: rgb(192, 189, 189);
+}
+
+.topic {
+    float: left;
+    height: 75px;
+    margin-top: 15px;
+    margin-left: 50px;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.serch {
+    float: left;
+    height: 50px;
+    width: 400px;
+    margin-top: 13px;
+    margin-left: 750px;
+    background-color: rgb(255, 253, 253);
+    border-radius: 100px;
+}
+
+.kensaku {
+    margin-top: 12px;
+    margin-left: 30px;
+    font-size: 20px;
 }
