@@ -13,3 +13,7 @@ class SignupForm(FlaskForm):
     profile_image = FileField('アカウント画像を選択してください', validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('サインアップ')
 
+class LoginForm(FlaskForm):
+    user_name = StringField('ユーザー名', validators=[DataRequired()])
+    password = PasswordField('パスワード', validators=[DataRequired()])
+    submit = SubmitField('ログイン')

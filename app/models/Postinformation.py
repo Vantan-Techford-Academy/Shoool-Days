@@ -4,6 +4,7 @@ from .database import db
 class Postinformation(db.Model):
     __tablename__ = 'Postinformation'
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
+    post_title = db.Column(db.String, nullable=False)
     post_details = db.Column(db.Text, nullable=False)
     post_date = db.Column(db.DateTime, default=db.func.current_timestamp(), nullable=False)
     poster_id = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)

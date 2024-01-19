@@ -1,14 +1,14 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
 from flask_wtf.csrf import CSRFProtect
-from flask_login import login_required
+from flask_login import LoginManager, UserMixin, login_user, current_user, logout_user, login_required
 from models.database import init_db, db
 from models.User import User
 from models.Category import Category
 from models.Postinformation import Postinformation
 from models.Comment import Comment
 from models.Good import Good
-from werkzeug.security import generate_password_hash
-from forms.forms import SignupForm
+from werkzeug.security import generate_password_hash, check_password_hash
+from forms.forms import SignupForm, LoginForm
 import os
 import secrets
 from PIL import Image
@@ -20,7 +20,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://test_user:password@db/s
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'lemontea'
 csrf = CSRFProtect(app)
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
 init_db(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 def save_picture(form_profile_image): #画像保存関数
     if form_profile_image:
@@ -65,6 +71,20 @@ def signup():
             db.session.commit()
             return redirect('/')
     return render_template('signup.html', form=form)
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if request.method == 'POST' and form.validate_on_submit():
+        user = User.query.filter_by(user_name=form.user_name.data).first()
+        password = check_password_hash(user.password, form.password.data)
+        if user and password:
+            login_user(user)
+            return redirect('/')
+
+    return render_template('login.html', form=form)
+
 
 
 if __name__ == '__main__':
