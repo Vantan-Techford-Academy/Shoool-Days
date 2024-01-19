@@ -71,7 +71,7 @@ def signup():
             new_user = User(user_name=user_name, mail_address=mail_address, password=hashed_password, profile_image = profile_image)
             db.session.add(new_user)
             db.session.commit()
-            return redirect('/Mypage')
+            return redirect('/')
     return render_template('signup.html', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -83,7 +83,7 @@ def login():
         password = check_password_hash(user.password, form.password.data)
         if user and password:
             login_user(user)
-            return redirect('/')
+            return redirect('/Mypage')
 
     return render_template('login.html', form=form)
 
