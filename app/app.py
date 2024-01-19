@@ -13,8 +13,10 @@ import os
 import secrets
 from PIL import Image
 
-
 app = Flask(__name__)
+
+IMG_FOLDER = os.path.join("static", "image")
+app.config["UPLOAD_FOLDER"] = IMG_FOLDER
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://test_user:password@db/schoool_days_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -69,7 +71,7 @@ def signup():
             new_user = User(user_name=user_name, mail_address=mail_address, password=hashed_password, profile_image = profile_image)
             db.session.add(new_user)
             db.session.commit()
-            return redirect('/')
+            return redirect('/Mypage')
     return render_template('signup.html', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -85,7 +87,13 @@ def login():
 
     return render_template('login.html', form=form)
 
-
+@app.route("/Mypage", methods=["GET", "POST"])
+def mainpage():
+    Flask_Icon_1 = os.path.join(app.config["UPLOAD_FOLDER"], "HomeImage.png")
+    Flask_Icon_2 = os.path.join(app.config["UPLOAD_FOLDER"], "CategoryImage.png")
+    Flask_Icon_3 = os.path.join(app.config["UPLOAD_FOLDER"], "InquiryImage.png")
+    Flask_Icon_4 = os.path.join(app.config["UPLOAD_FOLDER"], "HumanImage.png")
+    return render_template('Mypage.html', Home_Icon = Flask_Icon_1, Category_Icon = Flask_Icon_2, Inquiry_Icon = Flask_Icon_3, Human_Icon = Flask_Icon_4)
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=8888)
