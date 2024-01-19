@@ -3,13 +3,11 @@ body {
     margin: 0px;
 }
 
-.logo {
+img {
     object-fit: contain;
     float: left;
-    background-image: url(./img/shool.png);
     height: 80px;
     width: 80px;
-    background-repeat: no-repeat;
 }
 
 .head {
