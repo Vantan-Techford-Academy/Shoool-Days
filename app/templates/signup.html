@@ -1,36 +1,39 @@
-<!-- templates/signup.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サインアップ</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="static/css/signup.css" />
 </head>
 <body>
-    <h1>サインアップ</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+    {% from "_formhelpers.html" import render_field %}
     <form method="POST" action="" enctype="multipart/form-data">
-        {{ form.csrf_token }}
-        <label for="user_name">ユーザー名</label>
-        {{ form.user_name }}
-        <label for="mail_address">メールアドレス</label>
-        {{ form.mail_address }}
-        <label for="password">パスワード</label>
-        {{ form.password }}
-        <label for="confirm_password">パスワードの確認</label>
-        {{ form.confirm_password }}
-        <label for="profile_image">プロフィール画像の選択</label>
-        {{ form.profile_image }}
-        {{ form.submit }}
+    {{ form.csrf_token }}
+    <div class="sign-up">
+    <div class="div">
+        {{ form.profile_image(class="text-wrapper-6")}}
+        <div class="text-wrapper-5">名前:</div>
+        {{ form.user_name(class="rectangle-4") }}
+        <div class="text-wrapper-4">Email:</div>
+        {{ form.mail_address(class="rectangle-3")}}
+        <div class="text-wrapper-3">パスワード:</div>
+        {{ form.password(class="rectangle-2")}}
+        <div class="text-wrapper-2">パスワードの確認:</div>
+        {{ form.confirm_password(class="rectangle")}}
+        {{ form.submit(class="overlap")}}
+        <div class="overlap-group">
+        <div class="ellipse"></div>
+        <div class="vector">
+            <svg width="130" height="94" viewBox="0 0 130 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 93C2.57686 34.8625 87.069 -81.1443 129 93" stroke="#D9D9D9"/>
+            </svg>
+        </div>
+        <div class="ellipse-2"></div>
+        <div class="text-wrapper-7">アカウントを作成</div>
+        </div>
+    </div>
+    </div>
     </form>
 </body>
 </html>
+

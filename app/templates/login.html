@@ -1,4 +1,4 @@
-<!-- templates/signup.html -->
+<!-- templates/signup.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,5 +26,27 @@
         {{ form.password }}
         {{ form.submit }}
     </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="static/css/login.css" />
+</head>
+<body>
+    <form method="POST">
+        {{ form.csrf_token }}
+    <div class="login">
+    <div class="div">
+        <div class="text-wrapper-4">ログイン</div>
+        {{ form.user_name(class="rectangle-2")}}
+        <div class="text-wrapper-2">パスワード:</div>
+        {{ form.password(class="rectangle")}}
+        <div class="text-wrapper-3">アカウント名:</div>
+        {{ form.submit(class="overlap-group")}}
+        </div>
+    </div>
+    </div>
 </body>
 </html>
