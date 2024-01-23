@@ -12,11 +12,24 @@ from forms.forms import SignupForm, LoginForm
 import os
 import secrets
 from PIL import Image
+import pymysql
 
 app = Flask(__name__)
 
+def getConnection():
+    return pymysql.connect(
+        host='localhost',
+        db='mydb',
+        user='root',
+        password='',
+        charset='utf8',
+        cursorclass=pymysql.cursors.DictCursor
+    )
+
 IMG_FOLDER = os.path.join("static", "image")
 app.config["UPLOAD_FOLDER"] = IMG_FOLDER
+IMG_FOLDER_ICON = os.path.join("static", "profile_img")
+app.config["UPLOAD_FOLDER_ICON"] = IMG_FOLDER_ICON
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://test_user:password@db/schoool_days_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -51,7 +64,7 @@ def index():
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
-    form = SignupForm() 
+    form = SignupForm()
 
     if request.method == 'POST' and form.validate_on_submit():
         user_name = form.user_name.data
@@ -92,8 +105,17 @@ def mainpage():
     Flask_Icon_1 = os.path.join(app.config["UPLOAD_FOLDER"], "HomeImage.png")
     Flask_Icon_2 = os.path.join(app.config["UPLOAD_FOLDER"], "CategoryImage.png")
     Flask_Icon_3 = os.path.join(app.config["UPLOAD_FOLDER"], "InquiryImage.png")
-    Flask_Icon_4 = os.path.join(app.config["UPLOAD_FOLDER"], "HumanImage.png")
-    return render_template('Mypage.html', Home_Icon = Flask_Icon_1, Category_Icon = Flask_Icon_2, Inquiry_Icon = Flask_Icon_3, Human_Icon = Flask_Icon_4)
+    Flask_Icon_4 = os.path.join(app.config["UPLOAD_FOLDER_ICON"], current_user.profile_image)
+    user_Text = {
+        "User_name": current_user.user_name,
+        "User_Email": current_user.mail_address,
+    }
+    return render_template('Mypage.html', Home_Icon = Flask_Icon_1, Category_Icon = Flask_Icon_2, Inquiry_Icon = Flask_Icon_3, Human_Icon = Flask_Icon_4, User = user_Text)
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect("/login")
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=8888)
