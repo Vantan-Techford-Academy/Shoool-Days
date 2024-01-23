@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サインアップ</title>
+    <title>ログイン</title>
 </head>
 <body>
-    <h1>サインアップ</h1>
+    <h1>ログイン</h1>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             <ul class="messages">
@@ -18,18 +18,12 @@
             </ul>
         {% endif %}
     {% endwith %}
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST">
         {{ form.csrf_token }}
         <label for="user_name">ユーザー名</label>
         {{ form.user_name }}
-        <label for="mail_address">メールアドレス</label>
-        {{ form.mail_address }}
         <label for="password">パスワード</label>
         {{ form.password }}
-        <label for="confirm_password">パスワードの確認</label>
-        {{ form.confirm_password }}
-        <label for="profile_image">プロフィール画像の選択</label>
-        {{ form.profile_image }}
         {{ form.submit }}
     </form>
 </body>
