@@ -57,10 +57,6 @@ def save_picture(form_profile_image): #画像保存関数
     else:
         return None
 
-@app.route("/")
-def index():
-    users = User.query.all()
-    return render_template('index.html', users=users)
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
@@ -84,10 +80,11 @@ def signup():
             new_user = User(user_name=user_name, mail_address=mail_address, password=hashed_password, profile_image = profile_image)
             db.session.add(new_user)
             db.session.commit()
-            return redirect('/')
+            login_user(new_user)
+            return redirect('/Mypage')
     return render_template('signup.html', form=form)
 
-@app.route("/login", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
 
@@ -115,7 +112,11 @@ def mainpage():
 @app.route("/logout")
 def logout():
     logout_user()
-    return redirect("/login")
+    return redirect("/")
+
+@app.route("/goSignup")
+def goSignup():
+    return redirect("/signup")
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=8888)
