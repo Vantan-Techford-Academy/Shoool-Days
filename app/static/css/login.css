@@ -109,3 +109,19 @@
     letter-spacing: 0;
     line-height: normal;
 }
+
+.goSignupButton {
+    position: absolute;
+    top: 600px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border: 0;
+    background-color: transparent;
+}
+
+.goSignupButton:hover {
+    color: blue;
+}
