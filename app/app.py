@@ -8,7 +8,7 @@ from models.Postinformation import Postinformation
 from models.Comment import Comment
 from models.Good import Good
 from werkzeug.security import generate_password_hash, check_password_hash
-from forms.forms import SignupForm, LoginForm
+from forms.forms import SignupForm, LoginForm, PostForm
 import os
 import secrets
 from PIL import Image
@@ -39,6 +39,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 init_db(app)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -57,6 +58,43 @@ def save_picture(form_profile_image): #画像保存関数
     else:
         return None
 
+@app.route("/main")
+def main():
+    if request.method == 'GET':
+        posts = Postinformation.query.all()
+
+    Flask_Icon_1 = os.path.join(app.config["UPLOAD_FOLDER"], "HomeImage.png")
+    Flask_Icon_2 = os.path.join(app.config["UPLOAD_FOLDER"], "CategoryImage.png")
+    Flask_Icon_3 = os.path.join(app.config["UPLOAD_FOLDER"], "InquiryImage.png")
+    Flask_Icon_4 = os.path.join(app.config["UPLOAD_FOLDER_ICON"], current_user.profile_image)
+    return render_template('main.html', posts=posts, Home_Icon = Flask_Icon_1, Category_Icon = Flask_Icon_2, Inquiry_Icon = Flask_Icon_3, Human_Icon = Flask_Icon_4)
+
+
+@app.route("/create", methods=["POST", "GET"])
+def create():
+    form = PostForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        post_title = form.post_title.data
+        post_detail = form.post_detail.data
+        poster_id = current_user.id
+        new_post = Postinformation(post_title=post_title, post_details=post_detail, poster_id=poster_id)
+        db.session.add(new_post)
+
+        print(new_post.to_dict())
+        db.session.commit() #NOTE: ERROR
+        print(new_post)
+
+        return redirect('/main')
+
+    return render_template('create.html', form=form)
+
+@app.route('/<int:id>/delete')
+def delete(id):
+    id = Postinformation.query.get(id)
+
+    db.session.delete(id)
+    db.session.commit()
+    return redirect('/main')
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
@@ -96,6 +134,7 @@ def login():
             return redirect('/Mypage')
 
     return render_template('login.html', form=form)
+
 
 @app.route("/Mypage", methods=["GET", "POST"])
 def mainpage():

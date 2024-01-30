@@ -1,0 +1,18 @@
+.create_window {
+    margin-top: 10px;
+}
+
+.post_title {
+    display: flex;
+    flex-flow: column;
+    font-size: 30px;
+}
+
+.post_detail {
+    display: flex;
+    flex-flow: column;
+    font-size: 30px;
+    height: 300px;
+    width: 500px;
+}
+

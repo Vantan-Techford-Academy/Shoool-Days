@@ -1,0 +1,196 @@
+body {
+    background-color: rgb(221, 220, 220);
+    margin: 0px;
+}
+
+body {
+    margin-top: 0;
+    background-color: #dcdcdc;
+}
+
+.headerBox {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 100%;
+    height: 80px;
+    background: #9d9d9d;
+}
+
+.LogoImage {
+    position: absolute;
+    left: 0;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    background: black;
+}
+
+.LogoText {
+    position:absolute;
+    top: 30%;
+    left: 10%;
+    right: 10%;
+    bottom: 30%;
+    color: white;
+    font-size: 20px;
+}
+
+.HomeIcon {
+    position: absolute;
+    top: 20px;
+    left: 120px;
+}
+
+.HomeLinkButton {
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 20px;
+    left: 170px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.CategoryIcon {
+    position: absolute;
+    top: 30px;
+    left: 380px;
+}
+
+.CategoryLinkButton {
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 28px;
+    left: 410px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.InquiryIcon {
+    position: absolute;
+    top: 30px;
+    left: 600px;
+}
+
+.InquiryLinkButton {
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 28px;
+    left: 650px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.searchTextBox {
+    position: absolute;
+    top: 17px;
+    left: 860px;
+    width: 370px;
+    height: 45px;
+    border-radius: 20px;
+    background: #ffffff;
+    font-size: 22px;
+    padding-left : 15px;
+}
+
+.userIconBox {
+    position: absolute;
+    left: 1300px;
+    width: 80px;
+    height: 80px;
+    border: 2px;
+    border-radius: 50px;
+    background: #ffffff;
+}
+
+.HumanIcon {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.kizi {
+
+    display: flex;
+}
+
+.title {
+    margin-top: 100px;
+    font-family: "Zen Kurenaido", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    background-color: #ff857f;
+    margin-left: 40px;
+    color: white;
+    border-radius: 50px;
+    padding-left: 20px;
+    width: 170px;
+}
+
+.create {
+    float: left;
+    margin-top: 100px;
+}
+
+/* .topic {
+    margin-top: 90px;
+} */
+
+.toukou {
+    float: left;
+    background-color: antiquewhite;
+    height: 300px;
+    width: 440px;
+    margin-top: 10px;
+    margin-left: 30px;
+    border-radius: 20px;
+    position:relative;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.toukou_title {
+    font-family: "Kiwi Maru", serif;
+    font-style: normal;
+    line-height: 1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.toukou_body {
+    font-family: "Kiwi Maru", serif;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #909090;
+}
+
+.datetime {
+    float: right;
+    font-size: 10px;
+    font-family: "Kiwi Maru", serif;
+    font-style: normal;
+    margin-top: -10px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    background-color: rgb(255, 246, 148);
+    border-radius: 2px;
+}
+
+.delate {
+    font-family: "Kiwi Maru", serif;
+    border: 0;
+    border-radius: 0;
+    background: #ccc;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+}

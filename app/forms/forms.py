@@ -2,7 +2,7 @@
 
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email, EqualTo
 
 class SignupForm(FlaskForm):
@@ -17,3 +17,8 @@ class LoginForm(FlaskForm):
     user_name = StringField('', validators=[DataRequired()])
     password = PasswordField('', validators=[DataRequired()])
     submit = SubmitField('ログイン')
+
+class PostForm(FlaskForm):
+    post_title = StringField('', validators=[DataRequired()])
+    post_detail = TextAreaField('', validators=[DataRequired()])
+    submit = SubmitField('投稿')
