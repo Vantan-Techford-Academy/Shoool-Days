@@ -1,5 +1,10 @@
-{% extends 'base.html' %}
-{% block header %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>groupWork</title>
+    <link rel="stylesheet" type="text/css" href="static/css/Mypage.css">
+</head>
+<body>
     <div class="headerBox">
         <div class="LogoImage"><center class="LogoText">logo</center></div>
         <img src={{ Home_Icon }} width="50px" height="45px" class="HomeIcon">
@@ -12,29 +17,13 @@
         <div class="userIconBox">
             <img src={{ Human_Icon }} width="80px" height="80px" class="HumanIcon">
         </div>
+    <div class="HumanIconMainBox">
+        <img src={{ Human_Icon }} width="400px" height="400px" class="HumanIconMain">
     </div>
-
-<div class="create">
-    <a href="/create">記事を書く</a>
-</div>
-{% endblock %}
-
-<!-- <div class="HumanIconMainBox">
-    <img src={{ Human_Icon }} width="400px" height="400px" class="HumanIconMain">
-</div> -->
-<!-- <div class="img"></div>
-
-
-<div class="head">
-    <div class="topic">^勉強</div> -->
-        <!-- <div class="topic">
-            <select name="topic">
-                <option value="study">勉強</option>
-                <option value="Community">コミュニティ</option>
-            </select>
-        </div>
-
-    <div class="serch">
-        <div class="kensaku">検索</div>
-    </div>
-</div> -->
+    <div class="User_Name_Text">Username:{{ User.User_name }}</div>
+    <div class="User_Mail_Text">Email:{{ User.User_Email }}</div>
+    <form action="/logout">
+        <button class="logout_button" type="submit">ログアウト</button>
+    </form>
+</body>
+</html>

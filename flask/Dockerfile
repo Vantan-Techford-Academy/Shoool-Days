@@ -11,5 +11,7 @@ RUN pip3 install pymySQL
 RUN pip3 install cryptography
 RUN pip3 install Flask-WTF
 RUN pip3 install email_validator
+RUN pip3 install flask-login
+RUN pip3 install pillow
 
 RUN mkdir /app

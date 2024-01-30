@@ -21,6 +21,7 @@ $CMD_MYSQL -e "create table if not exists Category(
 # 投稿情報テーブルの作成
 $CMD_MYSQL -e "create table if not exists Postinformation(
     id int AUTO_INCREMENT NOT NULL primary key,
+    post_title varchar(255) NOT NULL,
     post_details longtext NOT NULL,
     post_date datetime default current_timestamp,
     poster_id int,

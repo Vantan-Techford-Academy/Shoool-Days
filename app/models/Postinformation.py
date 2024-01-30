@@ -4,6 +4,7 @@ from .database import db
 class Postinformation(db.Model):
     __tablename__ = 'Postinformation'
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
+    post_title = db.Column(db.String(64), nullable=False)
     post_details = db.Column(db.Text, nullable=False)
     post_date = db.Column(db.DateTime, default=db.func.current_timestamp(), nullable=False)
     poster_id = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)
@@ -18,6 +19,7 @@ class Postinformation(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'post_title': self.post_title,
             'post_details': self.post_details,
             'post_date': self.post_date,
             'poster_id': self.poster_id,
