@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="img"></div>
+<div class="headerBox">
+    <div class="LogoImage"><center class="LogoText">logo</center></div>
+    <form action="goMypage" methods="post">
+        <img src={{ Home_Icon }} width="37px" height="33px" class="HomeIcon">
+        <button class="HomeLinkButton" type="submit">マイページ</button>
+    </form>
+    <form action="goCategory" methods="post">
+        <img src={{ Category_Icon }} width="50px" height="60px" class="CategoryIcon">
+        <button class="CategoryLinkButton" type="submit">カテゴリー</button>
+    </form>
+    <img src={{ Inquiry_Icon }} width="40px" height="33px" class="InquiryIcon">
+    <button class="InquiryLinkButton" type"submit">お問い合わせ</button>
+    <input type="text" class="searchTextBox" placeholder="検索"></input>
+    <div class="userIconBox">
+        <img src={{ Human_Icon }} width="80px" height="80px" class="HumanIcon">
+    </div>
+
+        <!-- <div class="topic">
+            <select name="topic">
+                <option value="study">勉強</option>
+                <option value="Community">コミュニティ</option>
+            </select>
+        </div> -->
+
+<div class="kizi">
+    <a class="title" href="/create" style="text-decoration:none;">記事を書く</a>
+</div>
+
+{% for post in posts %}
+    <div class="toukou">
+            <p class="datetime">{{ post.post_date.strftime('%Y年%m月%d日 %H時%M分') }}</p>
+            <h2 class="toukou_title">{{ post.post_title }}</h2>
+            <!-- <button id="update" onclick="location.href='/{{post.id}}/update2'" role="button">編集</button> -->
+            <p class="toukou_body">{{ post.post_details }}</p>
+            <button class="delate" onclick="location.href='/{{post.id}}/delete'" role="button">削除</button>
+    </div>
+{% endfor %}
+{% endblock %}

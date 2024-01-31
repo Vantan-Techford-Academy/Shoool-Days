@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>groupWork</title>
+    <link rel="stylesheet" type="text/css" href="static/css/Mypage.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+    <div class="headerBox">
+        <div class="LogoImage"><center class="LogoText">logo</center></div>
+        <form action="/goMypage" methods="POST">
+            <img src={{ Home_Icon }} width="50px" height="45px" class="HomeIcon">
+            <button class="HomeLinkButton" type="submit">マイページ</button>
+        </form>
+        <form action="/goCategory" methods="POST">
+            <img src={{ Category_Icon }} width="30px" height="35px" class="CategoryIcon">
+            <button class="CategoryLinkButton" type="submit">カテゴリー</button>
+        </form>
+        <img src={{ Inquiry_Icon }} width="40px" height="33px" class="InquiryIcon">
+        <button class="InquiryLinkButton" type"submit">お問い合わせ</button>
+        <input type="text" class="searchTextBox" placeholder="検索"></input>
+        <div class="userIconBox">
+            <img src={{ Human_Icon }} width="80px" height="80px" class="HumanIcon">
+        </div>
+    <div class="HumanIconMainBox">
+        <img src={{ Human_Icon }} width="400px" height="400px" class="HumanIconMain">
+    </div>
+    <div class="User_Name_Text">Username:{{ User.User_name }}</div>
+    <div class="User_Mail_Text">Email:{{ User.User_Email }}</div>
+    <form action="/logout">
+        <button class="logout_button" type="submit">ログアウト</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block header %}
+    <div class="headerBox">
+        <div class="LogoImage"><center class="LogoText">logo</center></div>
+        <img src={{ Home_Icon }} width="50px" height="45px" class="HomeIcon">
+        <button class="HomeLinkButton" type="submit">マイページ</button>
+        <img src={{ Category_Icon }} width="30px" height="35px" class="CategoryIcon">
+        <button class="CategoryLinkButton" type="submit">カテゴリー</button>
+        <img src={{ Inquiry_Icon }} width="40px" height="33px" class="InquiryIcon">
+        <button class="InquiryLinkButton" type"submit">お問い合わせ</button>
+        <input type="text" class="searchTextBox" placeholder="検索"></input>
+        <div class="userIconBox">
+            <img src={{ Human_Icon }} width="80px" height="80px" class="HumanIcon">
+        </div>
+    </div>
+
+<div class="create">
+    <a href="/create">記事を書く</a>
+</div>
+{% endblock %}
+
+<!-- <div class="HumanIconMainBox">
+    <img src={{ Human_Icon }} width="400px" height="400px" class="HumanIconMain">
+</div> -->
+<!-- <div class="img"></div>
+
+
+<div class="head">
+    <div class="topic">^勉強</div> -->
+        <!-- <div class="topic">
+            <select name="topic">
+                <option value="study">勉強</option>
+                <option value="Community">コミュニティ</option>
+            </select>
+        </div>
+
+    <div class="serch">
+        <div class="kensaku">検索</div>
+    </div>
+</div> -->

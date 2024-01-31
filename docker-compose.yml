@@ -6,7 +6,7 @@ services:
     volumes:
       - ./app:/app
     ports:
-      - 5001:5000
+      - 8888:8888
     links:
       - db
     tty: true
@@ -26,3 +26,4 @@ services:
       - type: bind
         source: ./mysql/init
         target: /docker-entrypoint-initdb.d
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf

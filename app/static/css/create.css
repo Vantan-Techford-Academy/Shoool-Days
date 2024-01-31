@@ -1,0 +1,45 @@
+.form {
+    z-index: 2;
+    margin-left: 100px;
+}
+
+.create_window {
+    margin-top: 10px;
+    font-size: 80px;
+    margin-bottom: 30px;
+    font-weight: 800;
+    font-family: "DotGothic16", sans-serif;
+}
+
+.post_title {
+    width: 700px;
+    display: flex;
+    flex-flow: column;
+    font-size: 30px;
+    border: 0;
+    font-family: "DotGothic16", sans-serif;
+    margin-bottom: 20px;
+}
+
+.post_detail {
+    display: flex;
+    width: 700px;
+    flex-flow: column;
+    font-size: 30px;
+    height: 300px;
+    width: 500px;
+    border: 0;
+    font-family: "DotGothic16", sans-serif;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 40px;
+    font-family: "DotGothic16", sans-serif;
+}
+
+.submit {
+    font-size: 30px;
+    font-family: "DotGothic16", sans-serif;
+
+}

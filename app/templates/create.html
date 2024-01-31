@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="form">
+        <p class="create_window">新規作成画面</p>
+
+        <form method="POST">
+            {{ form.csrf_token }}
+
+            <label >タイトル</label>
+            {{ form.post_title(class="post_title") }}
+            <label >本文</label>
+            {{ form.post_detail(class="post_detail") }}
+            {{ form.submit(class='submit') }}
+
+        </form>
+    </div>
+
+{% endblock %}
