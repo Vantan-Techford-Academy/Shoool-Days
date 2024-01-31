@@ -3,10 +3,6 @@ body {
     margin: 0px;
 }
 
-body {
-    margin-top: 0;
-    background-color: #dcdcdc;
-}
 
 .headerBox {
     position: absolute;
@@ -131,6 +127,11 @@ body {
     width: 170px;
 }
 
+.title:hover {
+    background-color: white;
+    color: #ff857f;
+}
+
 .create {
     float: left;
     margin-top: 100px;
@@ -169,6 +170,7 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     color: #909090;
+    white-space: pre-wrap;
 }
 
 .datetime {
@@ -193,4 +195,9 @@ body {
     border-radius: 50px;
     position: absolute;
     bottom: 0;
+}
+
+.delate:hover {
+    background-color: black;
+    color: #ccc;
 }
