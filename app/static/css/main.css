@@ -110,6 +110,11 @@
     width: 170px;
 }
 
+.title:hover {
+    background-color: white;
+    color: #ff857f;
+}
+
 .create {
     float: left;
     margin-top: 100px;
@@ -148,6 +153,7 @@
     margin-left: 10px;
     margin-right: 10px;
     color: #909090;
+    white-space: pre-wrap;
 }
 
 .datetime {
@@ -172,4 +178,9 @@
     border-radius: 50px;
     position: absolute;
     bottom: 0;
+}
+
+.delate:hover {
+    background-color: black;
+    color: #ccc;
 }
