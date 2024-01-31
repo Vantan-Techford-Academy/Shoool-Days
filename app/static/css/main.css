@@ -1,41 +1,6 @@
-body {
-    background-color: rgb(221, 220, 220);
-    margin: 0px;
-}
-
-
-.headerBox {
-    position: absolute;
-    right: 0;
-    left: 0;
-    margin: auto;
-    width: 100%;
-    height: 80px;
-    background: #9d9d9d;
-}
-
-.LogoImage {
-    position: absolute;
-    left: 0;
-    margin: auto;
-    width: 80px;
-    height: 80px;
-    background: black;
-}
-
-.LogoText {
-    position:absolute;
-    top: 30%;
-    left: 10%;
-    right: 10%;
-    bottom: 30%;
-    color: white;
-    font-size: 20px;
-}
-
 .HomeIcon {
     position: absolute;
-    top: 20px;
+    top: 30px;
     left: 120px;
 }
 
@@ -43,26 +8,38 @@ body {
     border: none;
     background: transparent;
     position: absolute;
-    top: 20px;
-    left: 170px;
-    font-size: 30px;
+    top: 30px;
+    left: 153px;
+    font-size: 22px;
     font-weight: bold;
+}
+
+.HomeLinkButton:hover {
+    color: blue;
+    text-decoration:underline;
+    text-decoration-color:blue;
 }
 
 .CategoryIcon {
     position: absolute;
-    top: 30px;
-    left: 380px;
+    top: 16px;
+    left: 320px;
 }
 
 .CategoryLinkButton {
     border: none;
     background: transparent;
     position: absolute;
-    top: 28px;
-    left: 410px;
-    font-size: 22px;
+    top: 22px;
+    left: 370px;
+    font-size: 30px;
     font-weight: bold;
+}
+
+.CategoryLinkButton:hover {
+    color: blue;
+    text-decoration:underline;
+    text-decoration-color:blue;
 }
 
 .InquiryIcon {
@@ -79,6 +56,12 @@ body {
     left: 650px;
     font-size: 22px;
     font-weight: bold;
+}
+
+.InquiryLinkButton:hover {
+    color: blue;
+    text-decoration:underline;
+    text-decoration-color:blue;
 }
 
 .searchTextBox {
