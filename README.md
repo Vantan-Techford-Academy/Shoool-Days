@@ -24,4 +24,4 @@ docker-composeするだけ
 ## ER図
 <img src="./readmeImage/ERImage.png"><br>
 ## ページ遷移
-<img width="100px" src="URL">
+<img src="./readmeImage/linkimage.png">
