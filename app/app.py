@@ -148,6 +148,14 @@ def mainpage():
     }
     return render_template('Mypage.html', Home_Icon = Flask_Icon_1, Category_Icon = Flask_Icon_2, Inquiry_Icon = Flask_Icon_3, Human_Icon = Flask_Icon_4, User = user_Text)
 
+@app.route("/goMypage")
+def goMypage():
+    return redirect("/Mypage")
+
+@app.route("/goCategory")
+def goCategory():
+    return redirect("/main")
+
 @app.route("/logout")
 def logout():
     logout_user()
